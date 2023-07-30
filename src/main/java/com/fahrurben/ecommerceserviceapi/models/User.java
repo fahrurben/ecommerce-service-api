@@ -8,6 +8,7 @@ import java.util.Set;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,6 +41,7 @@ public class User implements UserDetails {
     @Setter
     private String password;
 
+    @ElementCollection(targetClass = String.class)
     private Set<Role> authorities = new HashSet<>();
 
     @Column(name = "created_at")
