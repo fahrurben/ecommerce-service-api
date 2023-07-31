@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fahrurben.ecommerceserviceapi.exceptions.EntityNotFoundException;
@@ -16,6 +17,7 @@ import com.fahrurben.ecommerceserviceapi.models.Product;
 import com.fahrurben.ecommerceserviceapi.repository.ProductRepository;
 
 @RestController
+@RequestMapping(path = "api")
 public class ProductController {
 
     private final ProductRepository repository;
@@ -54,7 +56,7 @@ public class ProductController {
             newProduct.setImage(product.getImage());
             newProduct.setCreatedAt(LocalDateTime.now());
             newProduct.setUpdatedAt(LocalDateTime.now());
-            return repository.save(product);
+            return repository.save(newProduct);
         }).orElseGet(() -> {
             newProduct.setId(id);
             return repository.save(newProduct);

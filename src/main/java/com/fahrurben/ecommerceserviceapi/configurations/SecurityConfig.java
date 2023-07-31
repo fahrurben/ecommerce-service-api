@@ -66,7 +66,7 @@ public class SecurityConfig {
         // Set permissions on endpoints
         http.authorizeHttpRequests(registry -> registry
                 // Our public endpoints
-                .requestMatchers("/login/**").permitAll()
+                .requestMatchers("/api/login").permitAll()
                 // Our private endpoints
                 .anyRequest().authenticated());
 

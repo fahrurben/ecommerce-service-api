@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fahrurben.ecommerceserviceapi.exceptions.UserNotFoundException;
@@ -16,6 +17,7 @@ import com.fahrurben.ecommerceserviceapi.models.User;
 import com.fahrurben.ecommerceserviceapi.repository.UserRepository;
 
 @RestController
+@RequestMapping(path = "api")
 public class UserController {
 
     private final UserRepository repository;
